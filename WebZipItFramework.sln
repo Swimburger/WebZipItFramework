@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31112.23
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebZipItFramework", "WebZipItFramework.csproj", "{834E7F87-DC7B-4890-8AC0-DB9143C43D0E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{834E7F87-DC7B-4890-8AC0-DB9143C43D0E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{834E7F87-DC7B-4890-8AC0-DB9143C43D0E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{834E7F87-DC7B-4890-8AC0-DB9143C43D0E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{834E7F87-DC7B-4890-8AC0-DB9143C43D0E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {9DF9EE69-93AE-46D7-9C44-649C2C189BAA}
+	EndGlobalSection
+EndGlobal
