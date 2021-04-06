@@ -16,22 +16,22 @@ namespace WebZipItFramework.Controllers
         {
             var contentPath = Server.MapPath("~/bots/");
             var files = Directory.GetFiles(contentPath);
-            var memoryStream = new MemoryStream();
-            using (ZipArchive archive = new ZipArchive(memoryStream, ZipArchiveMode.Update, leaveOpen: true))
+            var zipFileMemoryStream = new MemoryStream();
+            using (ZipArchive archive = new ZipArchive(zipFileMemoryStream, ZipArchiveMode.Update, leaveOpen: true))
             {
                 foreach (var file in files)
                 {
                     var entry = archive.CreateEntry(Path.GetFileName(file));
                     using (var entryStream = entry.Open())
+                    using (var fileStream = System.IO.File.OpenRead(file))
                     {
-                        var fileBytes = System.IO.File.ReadAllBytes(file); // use bytearray to simulate code review situation
-                        entryStream.Write(fileBytes, 0, fileBytes.Length);
+                        fileStream.CopyTo(entryStream);
                     }
                 }
             }
 
-            memoryStream.Seek(0, SeekOrigin.Begin);
-            return File(memoryStream, "application/octet-stream", "Bots.zip");
+            zipFileMemoryStream.Seek(0, SeekOrigin.Begin);
+            return File(zipFileMemoryStream, "application/octet-stream", "Bots.zip");
         }
 
         public void ZipOptimized()
@@ -48,9 +48,9 @@ namespace WebZipItFramework.Controllers
                 {
                     var entry = archive.CreateEntry(Path.GetFileName(file));
                     using (var entryStream = entry.Open())
+                    using (var fileStream = System.IO.File.OpenRead(file))
                     {
-                        var fileBytes = System.IO.File.ReadAllBytes(file); // use bytearray to simulate code review situation
-                        entryStream.Write(fileBytes, 0, fileBytes.Length);
+                        fileStream.CopyTo(entryStream);
                     }
                 }
             }
